@@ -1,22 +1,13 @@
 import express from "express";
-import pool from "../db.js"
+import pool from "../db.js";
 const router = express.Router();
 
 //Defining routes
 
 // router.get   /users getAll
-
-
 router.get("/", async (req, res) => {
-	const result = await pool.query("SELECT * from users", (err, rows) => {
-		if (err) {
-			res
-				.status(500)
-				.send("Error 500: Internal server error; users not found!");
-		} else {
-			res.status(200).json(result.rows);
-		}
-	});
+  const result = await pool.query("SELECT * from users");
+  res.json(result.rows);
 });
 
 //router.get   /users/:id
@@ -26,14 +17,5 @@ router.get("/", async (req, res) => {
 //router.put   //users/:id (updated/replacing a user)
 
 //router.delete   //users/:id (kill)
-
-
-
-
-
-
-
-
-
 
 export default router;
