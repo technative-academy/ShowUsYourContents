@@ -1,10 +1,12 @@
 import express from "express";
-import { getAllJSDocTags } from "typescript";
+import pool from "../db.js"
 const router = express.Router();
 
 //Defining routes
 
 // router.get   /users getAll
+
+
 router.get("/", async (req, res) => {
 	const result = await pool.query("SELECT * from users", (err, rows) => {
 		if (err) {
@@ -34,4 +36,4 @@ router.get("/", async (req, res) => {
 
 
 
-module.exports = router;
+export default router;
