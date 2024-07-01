@@ -1,35 +1,24 @@
-// Use DBML to define your database structure
-// Docs: https://dbml.dbdiagram.io/docs
+CREATE TABLE users (
+  id serial PRIMARY KEY,
+  username varchar(50) UNIQUE NOT NULL,
+  email varchar(100) UNIQUE NOT NULL,
+  bio text,
+  password varchar(255), -- Adjusted length for hashed passwords
+  role varchar(100)
+);
 
-Table user {
-  id serial [primary key]
-  username varchar
-  email varchar
-  bio text
-  password varchar
-  role varchar
-}
-
-
-Table treasure {
-  id serial [primary key]
-  bag_id int 
-  user_id int 
-  treasure_name varchar
+CREATE TABLE bags (
+  id serial PRIMARY KEY,
+  user_id int REFERENCES users(id),
+  bag_name varchar(50),
   description text
-}
+);
 
-Table bag {
-  id serial [primary key]
-  user_id int
-  bag_name varchar
+CREATE TABLE treasures (
+  id serial PRIMARY KEY,
+  bag_id int REFERENCES bags(id),
+  user_id int REFERENCES users(id),
+  treasure_name varchar(50),
   description text
-}
+);
 
-
-
-Ref: "user"."id" < "bag"."user_id"
-
-Ref: "bag"."id" < "treasure"."bag_id"
-
-Ref: "user"."id" < "treasure"."user_id"
