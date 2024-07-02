@@ -22,7 +22,7 @@ The final group project for TechNative Academy. This app is the backend and cons
 [View project here](https://showusyourcontents.netlify.app/) <br>
 Due to the API being hosted on render it may take up to 50 seconds for content to load. Please be patient.
 
-Alternatively clone this repo and host locally. [Instructions here](#technical-information)
+Alternatively clone this repo and host locally. [Instructions here](#local-installation-guide)
 
 # Our Process
 
