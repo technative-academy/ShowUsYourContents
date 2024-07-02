@@ -5,9 +5,16 @@ const router = express.Router();
 //Defining routes
 
 // router.get   /users getAll
+// GET /users - Retrieve all users
+
 router.get("/", async (req, res) => {
-  const result = await pool.query("SELECT * from users");
-  res.json(result.rows);
+  try {
+    const result = await pool.query("SELECT * FROM users");
+    res.status(200).json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error 500: Internal server error; users not found!");
+  }
 });
 
 //router.get   /users/:id
