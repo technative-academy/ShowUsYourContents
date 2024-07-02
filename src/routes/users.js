@@ -32,8 +32,59 @@ router.get("/:id", async (req, res) => {
 
 //router.post  //users (creating a new user)
 
+router.post("/", async (req, res) => {
+  const { username, email, bio, password } = req.body;
+
+  let result;
+  try {
+    result = await pool.query(
+      "INSERT INTO users (username, email, bio, password, role) values ($1, $2, $3, $4, 'user') RETURNING *;",
+      [username, email, bio, password]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    console.error(`DB error occurred when creating user:\n${err}`);
+    res.status(500).json({ error: "DB error occurred when creating user" });
+    return;
+  }
+});
+
 //router.put   //users/:id (updated/replacing a user)
 
+router.put("/:id", async (req, res) => {
+  const { id } = req.params;
+  const { username, email, bio, password } = req.body;
+
+  let result;
+  try {
+    result = await pool.query(
+      "UPDATE users SET username = $1, email = $2, bio = $3, password = $4 WHERE id = $5 RETURNING *;",
+      [username, email, bio, password, id]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    console.error(`DB error occurred when updating user:\n${err}`);
+    res.status(500).json({ error: "DB error occurred when updating user" });
+    return;
+  }
+});
+
 //router.delete   //users/:id (kill)
+
+router.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+
+  let result;
+  try {
+    result = await pool.query("DELETE FROM users WHERE id = $1 RETURNING *;", [
+      id,
+    ]);
+    res.status(201).json({ message: "Deletion successful" });
+  } catch (err) {
+    console.error(`DB error occurred when deleting user:\n${err}`);
+    res.status(500).json({ error: "DB error occurred when deleting user" });
+    return;
+  }
+});
 
 export default router;
