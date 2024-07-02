@@ -2,7 +2,8 @@ import express from "express";
 import "dotenv/config";
 import cors from "cors";
 import users from "./src/routes/users.js";
-import bags from "./src/routes/bags.js"
+import bags from "./src/routes/bags.js";
+import treasures from "./src/routes/treasures.js";
 
 const port = process.env.PORT ?? 3001;
 
@@ -15,6 +16,7 @@ app.use(router);
 
 router.use("/users", users);
 router.use("/bags", bags);
+router.use("/treasures", treasures);
 
 app.listen(port, () => {
   console.log(`Listening on port: http://localhost:${port}.`);
