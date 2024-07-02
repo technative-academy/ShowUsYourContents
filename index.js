@@ -1,10 +1,10 @@
 import express from "express";
-import "dotenv/config";
+import dotenv from "dotenv";
 import cors from "cors";
 import users from "./src/routes/users.js";
 import bags from "./src/routes/bags.js";
 import treasures from "./src/routes/treasures.js";
-import auth from "./srd/routes/auth.js";
+import auth from "./src/routes/auth.js";
 
 dotenv.config();
 
