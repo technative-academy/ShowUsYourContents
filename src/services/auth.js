@@ -29,7 +29,7 @@ const registerUser = async (name, email, password, bio) => {
   // hash the password and insert the new user into the database
   const hashedPassword = await bcrypt.hash(password, 10);
   const result = await pool.query(
-    "INSERT INTO users (name, email, password, bio) VALUES ($1, $2, $3, $4) RETURNING *",
+    "INSERT INTO users (username, email, password, bio) VALUES ($1, $2, $3, $4) RETURNING *",
     [name, email, hashedPassword, bio]
   );
 
@@ -53,7 +53,7 @@ const loginUser = async (email, password) => {
 
     return {
       id: user.id,
-      name: user.name,
+      name: user.username,
       accessToken,
       refreshToken,
     };
