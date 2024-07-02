@@ -4,7 +4,7 @@ const router = express.Router();
 
 //Defining routes
 
-// router.get   /users getAll
+// router.get   /bags getAll
 // GET /bags - Retrieve all users
 
 router.get("/", async (req, res) => {
@@ -26,7 +26,11 @@ router.get("/:id", async (req, res) => {
     res.status(200).json(result.rows[0]);
   } catch (err) {
     console.error(err);
-    res.status(500).send("Error 500: Internal server error; bag not found! Please consult lost luggage...");
+    res
+      .status(500)
+      .send(
+        "Error 500: Internal server error; bag not found! Please consult lost luggage..."
+      );
   }
 });
 
@@ -58,8 +62,8 @@ router.put("/:id", async (req, res) => {
   let result;
   try {
     result = await pool.query(
-      "UPDATE bags SET id = $1, bag_name = $2, description = $3 WHERE id = $5 RETURNING *;",
-      [id, bag_name, description]
+      "UPDATE bags SET bag_name = $1, description = $2 WHERE id = $3 RETURNING *;",
+      [bag_name, description, id]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
