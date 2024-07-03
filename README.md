@@ -64,10 +64,18 @@ For day two we did quad programming and accomplished the following:
 <details>
 <summary> Day 3</summary>
 
-For day two we did quad programming and accomplished the following:
+For day three we did quad programming and accomplished the following:
 
 - Added ability to add new bag through the frontend
+- Rendered all bags in the db
 - Started on implementing the add treasure function - we added a drop down menu that includes all the bags of the current user
+- Update the API bag endpoint
+- Reorder the nav bar
+
+![day 3 frontend bags](resources/day3-frontend-bags.png)
+
+![day 3 frontend addtreasure](resources/day3-frontend-addtreasure.png)
+
 
 </details>
 
