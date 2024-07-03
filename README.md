@@ -116,38 +116,11 @@ npm install
 
 #### 3. Edit the .env file in the root directory and add your SQL details.
 
-> [!WARNING]
-> **The file should be formatted as such, with the appropriate details. Otherwise it will _not_ work**
+Refer to the `.env.example` files, copy them exactly into a new file called `.env`.
 
 > [!IMPORTANT]
 > JWT Secrets can be a random string of letters and integers
 > If you change the ports the apps are running on please update them in the .env accordingly
-
-#### .env for backend
-```
-# JWT Secrets
-ACCESS_TOKEN_SECRET=""
-REFRESH_TOKEN_SECRET=""
-
-# DB
-DB_HOST=""
-DB_NAME=""
-DB_PORT=
-DB_USER=""
-DB_PSWD=""
-
-# React app
-REACT_APP_DOMAIN="http://localhost:5173"
-
-# Change this to production for the deployed app, or test for tests
-NODE_ENV=development
-```
-
-#### .env for frontend
-```
-VITE_API_URL="http://localhost:3001"
-```
-
 
 #### 4. Manually create a DB
 
