@@ -40,19 +40,19 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.post("/refresh-token", async (req, res) => {
-  const refreshToken = req.cookies.refreshToken;
-  if (!refreshToken) {
-    return res.sendStatus(401);
-  }
+// router.post("/refresh-token", async (req, res) => {
+//   const refreshToken = req.cookies.refreshToken;
+//   if (!refreshToken) {
+//     return res.sendStatus(401);
+//   }
 
-  try {
-    const newAccessToken = await refreshAccessToken(refreshToken);
-    res.json({ accessToken: newAccessToken });
-  } catch (error) {
-    res.status(403).json({ error: error.message });
-  }
-});
+//   try {
+//     const newAccessToken = await refreshAccessToken(refreshToken);
+//     res.json({ accessToken: newAccessToken });
+//   } catch (error) {
+//     res.status(403).json({ error: error.message });
+//   }
+// });
 
 router.post("/logout", (req, res) => {
   res.clearCookie("refreshToken");

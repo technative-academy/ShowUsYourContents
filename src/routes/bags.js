@@ -1,6 +1,7 @@
 import express from "express";
 import pool from "../db.js";
 const router = express.Router();
+import authenticateToken from "../middleware/auth.js";
 
 //Defining routes
 
@@ -36,14 +37,15 @@ router.get("/:id", async (req, res) => {
 
 //router.post  //bags (creating a new bag)  NEEDS USER ID!!!
 
-router.post("/", async (req, res) => {
-  const { bag_name, description } = req.body;
+router.post("/", authenticateToken, async (req, res) => {
+  const { name, description } = req.body;
+  const userId = req.user.id;
 
   let result;
   try {
     result = await pool.query(
-      "INSERT INTO bags (bag_name, description) values ($1, $2) RETURNING *;",
-      [bag_name, description]
+      "INSERT INTO bags (user_id, bag_name, description) values ($1, $2, $3) RETURNING *;",
+      [userId, name, description]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
