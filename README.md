@@ -31,15 +31,15 @@ Alternatively clone this repo and host locally. [Instructions here](#local-insta
 
 For day one we did quad programming and accomplished the following:
 
-- decided on our theme
-- created a trello board
-- created our repo
-- talked about our MVP
-- created a schema for our db
-- created the db
-- inserted dummy data into the db
-- hosted the db on Supabase
-- created the API with 1 endpoint to get all users in the db
+- Decided on our theme
+- Created a trello board
+- Created our repo
+- Talked about our MVP
+- Created a schema for our db
+- Created the db
+- Inserted dummy data into the db
+- Hosted the db on Supabase
+- Created the API with 1 endpoint to get all users in the db
 
 ![trello](resources/image.png)
 ![db-schema](resources/dbschema.png)
@@ -51,11 +51,11 @@ For day one we did quad programming and accomplished the following:
 
 For day two we did quad programming and accomplished the following:
 
-- added endpoints that GET, POST, PUT, DELETE for users, treasures and bags
-- hosted the API on render
-- connected the backend to Pete's provided frontend
-- hosted the frontend on netlify
-- added the ability to register and login using authentication (using Pete's example backend as a template)
+- Added endpoints that GET, POST, PUT, DELETE for users, treasures and bags
+- Hosted the API on render
+- Connected the backend to Pete's provided frontend that renders treasures
+- Hosted the frontend on netlify
+- Added the ability to register and login using authentication (using Pete's example backend as a template)
 
 ![frontend day2](resources/frontend-day2.png)
 
@@ -63,6 +63,11 @@ For day two we did quad programming and accomplished the following:
 
 <details>
 <summary> Day 3</summary>
+
+For day two we did quad programming and accomplished the following:
+
+- Added ability to add new bag through the frontend
+- Started on implementing the add treasure function - we added a drop down menu that includes all the bags of the current user
 
 </details>
 
