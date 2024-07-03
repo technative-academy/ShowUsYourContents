@@ -18,6 +18,25 @@ router.get("/", async (req, res) => {
   }
 });
 
+//router.get --> GET bag(s) by user id
+
+router.get("/fetchByUser", authenticateToken, async (req, res) => {
+  const userId = req.user.id;
+  try {
+    const result = await pool.query("SELECT * FROM bags WHERE user_id = $1", [
+      userId,
+    ]);
+    res.status(200).json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res
+      .status(500)
+      .send(
+        "Error 500: Internal server error; bag not found! Please consult lost luggage..."
+      );
+  }
+});
+
 //router.get   /bags/:id
 
 router.get("/:id", async (req, res) => {
