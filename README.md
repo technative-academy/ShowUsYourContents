@@ -47,17 +47,17 @@ npm install
 
 Register a new user
 
-- Method: POST
+- Method: `POST`
 - URL: /register
 
 Login a user
 
-- Method: POST
+- Method: `POST`
 - URL: /login
 
 Logout a user
 
-- Method: POST
+- Method: `POST`
 - URL: /logout
 
 ### Endpoints - Users
