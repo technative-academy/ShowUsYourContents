@@ -89,9 +89,9 @@ For day four we did quad programming and accomplished the following:
 - Allow users to edit and delete treasures
 - Allow users to delete bags
 - Added styling and a logo
-
-![day4 frontend my-things](resources/day4-frontend-mythings.png)
-
+- Update the breadcrumb for 'Things' to 'Treasures'
+- Write a blurb for the home page
+- Add placeholder text for the dropdown menu
 
 </details>
 
