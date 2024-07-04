@@ -104,7 +104,7 @@ For day four we did quad programming and accomplished the following:
 
 ## Database
 
-## Using the API
+To set up this project locally, you'll need to run the SQL included in the `db`` folder.
 
 ### Endpoints
 
