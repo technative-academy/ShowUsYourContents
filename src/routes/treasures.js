@@ -60,15 +60,15 @@ router.get("/:id", async (req, res) => {
 
 //router.put   //treasures/:id (updated/replacing a treasure)  NEEDS USER ID
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", authenticateToken, async (req, res) => {
   const { id } = req.params;
-  const { treasure_name, description } = req.body;
+  const { name, description } = req.body;
 
   let result;
   try {
     result = await pool.query(
       "UPDATE treasures SET treasure_name = $1, description = $2 WHERE id = $3 RETURNING *;",
-      [treasure_name, description, id]
+      [name, description, id]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
@@ -78,9 +78,9 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-//router.delete   //bag/:id (kill) ONLY USER CAN DELETE BAG
+//router.delete   //treasures/:id (kill) ONLY USER CAN DELETE BAG
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authenticateToken, async (req, res) => {
   const { id } = req.params;
 
   let result;
