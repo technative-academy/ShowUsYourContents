@@ -4,6 +4,7 @@ import cors from "cors";
 import users from "./src/routes/users.js";
 import bags from "./src/routes/bags.js";
 import treasures from "./src/routes/treasures.js";
+import allThings from "./src/routes/my-things.js";
 import auth from "./src/routes/auth.js";
 
 dotenv.config();
@@ -26,6 +27,7 @@ router.use("/users", users);
 router.use("/auth", auth);
 router.use("/bags", bags);
 router.use("/treasures", treasures);
+router.use("/my-things", allThings);
 
 app.listen(port, () => {
   console.log(`Listening on port: http://localhost:${port}.`);
