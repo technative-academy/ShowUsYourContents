@@ -101,9 +101,8 @@ router.delete("/:id", async (req, res) => {
 
   let result;
   try {
-    result = await pool.query("DELETE FROM bags WHERE id = $1 RETURNING *;", [
-      id,
-    ]);
+    result = await pool.query("DELETE FROM treasures WHERE bag_id = $1;", [id]);
+    result = await pool.query("DELETE FROM bags WHERE id = $1;", [id]);
     res.status(201).json({ message: "Deletion successful" });
   } catch (err) {
     console.error(`DB error occurred when deleting bag:\n${err}`);

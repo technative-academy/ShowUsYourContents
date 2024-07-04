@@ -13,7 +13,8 @@ router.get("/", authenticateToken, async (req, res) => {
 
   try {
     const result = await pool.query(
-      `SELECT bags.bag_name AS BagName, treasures.treasure_name AS TreasureName, treasures.id as id FROM treasures INNER JOIN bags ON treasures.bag_id = bags.id WHERE bags.user_id = ${userId};`
+      "SELECT bags.bag_name AS BagName, treasures.treasure_name AS TreasureName, treasures.id as id, bags.id as bagId FROM treasures INNER JOIN bags ON treasures.bag_id = bags.id WHERE bags.user_id = $1",
+      [userId]
     );
     res.status(200).json(result.rows);
   } catch (err) {
