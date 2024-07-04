@@ -83,7 +83,15 @@ For day three we did quad programming and accomplished the following:
 <summary> Day 4</summary>
 
 For day four we did quad programming and accomplished the following:
+
 - Implemented full functionality of add treasure view
+- Add full functionality of the my things view, which shows all treasures and what bags they are in
+- Allow users to edit and delete treasures
+- Allow users to delete bags
+- Added styling and a logo
+
+![day4 frontend my-things](resources/day4-frontend-mythings.png)
+
 
 </details>
 
