@@ -1,8 +1,28 @@
 import express from "express";
 import pool from "../db.js";
 const router = express.Router();
+import authenticateToken from "../middleware/auth.js";
 
 //Defining routes
+
+//router.post  //treasures (creating a new treasure)  NEEDS USER ID!!!
+
+router.post("/", authenticateToken, async (req, res) => {
+  const { bagId, name, description } = req.body;
+  const userId = req.user.id;
+  let result;
+  try {
+    result = await pool.query(
+      "INSERT INTO treasures (bag_id, user_id, treasure_name, description) values ($1, $2, $3, $4) RETURNING *;",
+      [bagId, userId, name, description]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    console.error(`DB error occurred when creating treasure:\n${err}`);
+    res.status(500).json({ error: "DB error occurred when creating treasure" });
+    return;
+  }
+});
 
 // router.get   /treasures getAll
 // GET /treasures - Retrieve all treasures
@@ -35,25 +55,6 @@ router.get("/:id", async (req, res) => {
       .send(
         "Error 500: Internal server error; treasure not found! Please consult lost luggage..."
       );
-  }
-});
-
-//router.post  //treasures (creating a new treasure)  NEEDS USER ID!!!
-
-router.post("/", async (req, res) => {
-  const { bag_id, user_id, treasure_name, description } = req.body;
-
-  let result;
-  try {
-    result = await pool.query(
-      "INSERT INTO treasures (bag_id, user_id, treasure_name, description) values ($1, $2, $3, $4) RETURNING *;",
-      [bag_id, user_id, treasure_name, description]
-    );
-    res.status(201).json(result.rows[0]);
-  } catch (err) {
-    console.error(`DB error occurred when creating treasure:\n${err}`);
-    res.status(500).json({ error: "DB error occurred when creating treasure" });
-    return;
   }
 });
 
