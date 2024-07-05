@@ -1,5 +1,6 @@
 import express from "express";
 import pool from "../db.js";
+import authenticateToken from "../middleware/auth.js";
 const router = express.Router();
 
 //Defining routes
@@ -27,6 +28,33 @@ router.get("/:id", async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send("Error 500: Internal server error; user not found!");
+  }
+});
+
+// Get user treasures
+router.get("/:userid/treasures", async (req, res) => {
+  const { userid } = req.params;
+  try {
+    const result = await pool.query(
+      `SELECT users.username, users.bio, bags.bag_name, treasures.treasure_name
+      FROM users
+      JOIN bags
+      ON users.id = bags.user_id
+      JOIN treasures
+      ON bags.id = treasures.bag_id
+      WHERE users.id = $1;`,
+      [userid]
+    );
+    console.log(userid)
+    console.log(result.rows);
+    res.status(200).json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res
+      .status(500)
+      .send(
+        "Error 500: Internal server error; treasure not found! Please consult lost luggage..."
+      );
   }
 });
 
