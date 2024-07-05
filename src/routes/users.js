@@ -45,8 +45,6 @@ router.get("/:userid/treasures", async (req, res) => {
       WHERE users.id = $1;`,
       [userid]
     );
-    console.log(userid)
-    console.log(result.rows);
     res.status(200).json(result.rows);
   } catch (err) {
     console.error(err);
