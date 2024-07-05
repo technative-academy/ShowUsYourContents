@@ -33,7 +33,7 @@ For day one we did quad programming and accomplished the following:
 
 - Decided on our theme
 - Created a trello board
-- Created our repo
+- Created our repo with protect main rule
 - Talked about our MVP
 - Created a schema for our db
 - Created the db
@@ -100,7 +100,7 @@ For day four we did quad programming and accomplished the following:
 
 For day five we did quad programming and accomplished the following:
 - Rendered a users list of things on the users view
-- Worked on presentation 
+- Worked on presentation
 
 
 </details>
