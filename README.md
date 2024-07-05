@@ -100,6 +100,7 @@ For day four we did quad programming and accomplished the following:
 
 For day five we did quad programming and accomplished the following:
 - Rendered a users list of things on the users view
+- Worked on presentation 
 
 
 </details>
