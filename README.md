@@ -11,11 +11,11 @@ The final group project for TechNative Academy. This app is the backend and cons
 
 # Tech stack:
 
-- Express
-- Posgresql
-- React
-- Javascript
-- CSS
+### Built with
+[![Languages used](https://skillicons.dev/icons?i=html,css,javascript,react,redux,express,postgresql)](https://skillicons.dev)
+
+### Tools used
+[![Tools used](https://skillicons.dev/icons?i=git,github,npm,postman,vscode,netlify,supabase)](https://skillicons.dev)
 
 ## View Project
 
