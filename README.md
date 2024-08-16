@@ -19,7 +19,7 @@ The final group project for TechNative Academy. This app is the backend and cons
 
 ## View Project
 
-[View project here](https://showusyourcontents.netlify.app/) <br>
+[View project here](https://show-us-your-contents.netlify.app/) <br>
 
 > [!NOTE]
 > Due to the API being hosted on render it may take up to 50 seconds for content to load. Please be patient.
