@@ -11,16 +11,18 @@ The final group project for TechNative Academy. This app is the backend and cons
 
 # Tech stack:
 
-- Express
-- Posgresql
-- React
-- Javascript
-- CSS
+### Built with
+[![Languages used](https://skillicons.dev/icons?i=html,css,javascript,react,redux,express,postgresql)](https://skillicons.dev)
+
+### Tools used
+[![Tools used](https://skillicons.dev/icons?i=git,github,npm,postman,vscode,netlify,supabase)](https://skillicons.dev)
 
 ## View Project
 
-[View project here](https://showusyourcontents.netlify.app/) <br>
-Due to the API being hosted on render it may take up to 50 seconds for content to load. Please be patient.
+[View project here](https://show-us-your-contents.netlify.app/) <br>
+
+> [!NOTE]
+> Due to the API being hosted on render it may take up to 50 seconds for content to load. Please be patient.
 
 Alternatively clone this repo and host locally. [Instructions here](#local-installation-guide)
 
@@ -111,32 +113,31 @@ For day five we did quad programming and accomplished the following:
 
 To set up this project locally, you'll need to run the SQL included in the `db`` folder.
 
-### Endpoints
+## Endpoints
 
-Endpoints - Auth
+### Endpoints - Auth
 Register a new user
-
 Method: POST
 URL: /register
-Login a user
 
+Login a user
 Method: POST
 URL: /login
-Logout a user
 
+Logout a user
 Method: POST
 URL: /logout
-Endpoints - Users
-Get all users
 
-Method: GET
-URL: /users
-Get user by ID
+### Endpoints - Users
+Get all users <br>
+Method: GET  <br>
+URL: /users <br>
 
-Method: GET
-URL: /users/:id
+Get user by ID <br>
+Method: GET <br>
+URL: /users/:id <br>
+
 Add a new user
-
 Method: POST
 URL: /users
 Update/replace a user
